@@ -8,9 +8,9 @@ from typing import Annotated, TypedDict
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.checkpoint.memory import InMemorySaver
+import os
+
 load_dotenv()
-
-
 @tool
 def rag_tool (user_query):
    """
@@ -20,8 +20,9 @@ def rag_tool (user_query):
 
    vector_db = QdrantVectorStore.from_existing_collection(
       embedding=embedding_model,
-      url = "http://localhost:6333",
-      collection_name = "codebase rag1"
+      path= f"{os.getcwd()}\.agent",
+      # url = "http://localhost:6333",
+      collection_name = "codebase"
       )
    search_results = vector_db.similarity_search(
       query = user_query

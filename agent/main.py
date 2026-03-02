@@ -2,6 +2,8 @@ import typer
 from .index import get_vector
 from .aiagent import chatbot
 from langchain_core.messages import HumanMessage
+import os
+
 
 app = typer.Typer()
 
@@ -10,6 +12,7 @@ def init(file_path):
    """
    Convert your codebase into vectors
    """
+   os.mkdir(".agent")
    get_vector(file_path)
 
 
@@ -17,7 +20,9 @@ def init(file_path):
 def chat() :
    """
    chat with the agent 
+   
    """
+   print(os.getcwd())
    config = {'configurable':{'thread_id':12}}
    while True:
     user_msg = input("Ask anything: ")

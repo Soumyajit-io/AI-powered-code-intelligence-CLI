@@ -3,7 +3,7 @@ from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
-
+import os
 load_dotenv()
 
 def get_vector(file:str):
@@ -21,7 +21,8 @@ def get_vector(file:str):
    vector_store = QdrantVectorStore.from_documents(
       documents=chunks,
       embedding=embedding_model,
-      url = "http://localhost:6333",
-      collection_name = "codebase rag1"
+      path= f"{os.getcwd()}\.agent",
+      # url = "http://localhost:6333",
+      collection_name = "codebase"
    )
    print("Vector Store created successfully")
