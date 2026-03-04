@@ -20,7 +20,7 @@ def rag_tool (user_query):
 
    vector_db = QdrantVectorStore.from_existing_collection(
       embedding=embedding_model,
-      path= f"{os.getcwd()}\.agent",
+      path=os.path.join(os.getcwd(), ".agent"),
       # url = "http://localhost:6333",
       collection_name = "codebase"
       )
