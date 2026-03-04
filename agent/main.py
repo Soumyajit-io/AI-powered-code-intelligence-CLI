@@ -4,7 +4,10 @@ from .aiagent import chatbot
 from .Tools.scanner import scan_project
 from langchain_core.messages import HumanMessage
 import os
+from rich.console import Console
+from rich.markdown import Markdown
 
+console = Console()
 
 app = typer.Typer()
 
@@ -25,12 +28,11 @@ def chat() :
    chat with the agent 
    
    """
-   print(os.getcwd())
    config = {'configurable':{'thread_id':12}}
    while True:
     user_msg = input("Ask anything: ")
     result = chatbot.invoke({"messages": [HumanMessage(content=(user_msg))]},config=config)
-    print('AI: ',result["messages"][-1].content)
+    console.print(Markdown(f' **Agent:** {result["messages"][-1].content}'))
 
 
 # @app.command()
