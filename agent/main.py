@@ -1,6 +1,7 @@
 import typer
 from .index import get_vector
 from .aiagent import chatbot
+from .Tools.scanner import scan_project
 from langchain_core.messages import HumanMessage
 import os
 
@@ -8,12 +9,14 @@ import os
 app = typer.Typer()
 
 @app.command()
-def init(file_path):
+def init():
    """
    Convert your codebase into vectors
    """
-   os.mkdir(".agent")
-   get_vector(file_path)
+   if not os.path.exists(".agent"):
+      os.mkdir(".agent")
+   paths = scan_project(os.getcwd())
+   get_vector(paths)
 
 
 @app.command()
