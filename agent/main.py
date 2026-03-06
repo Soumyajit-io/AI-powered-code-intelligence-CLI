@@ -2,6 +2,7 @@ import typer
 from .index import get_vector
 from .aiagent import chatbot
 from .Tools.scanner import scan_project
+from .Tools.streaming import stream_chat
 from langchain_core.messages import HumanMessage
 import os
 from rich.console import Console
@@ -28,11 +29,12 @@ def chat() :
    chat with the agent 
    
    """
-   config = {'configurable':{'thread_id':12}}
    while True:
-    user_msg = input("Ask anything: ")
-    result = chatbot.invoke({"messages": [HumanMessage(content=(user_msg))]},config=config)
-    console.print(Markdown(f' **Agent:** {result["messages"][-1].content}'))
+        question = console.input("[bold green]Ask about codebase > [/bold green]")
+        if question.lower() in {"exit", "quit"}:
+            break
+        stream_chat(question)
+   
 
 
 # @app.command()
