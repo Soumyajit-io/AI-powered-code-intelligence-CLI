@@ -46,32 +46,50 @@ Responses are **streamed live in the terminal** for a smooth developer experienc
 
 ## 🏗 Architecture
 
-The system uses a **RAG + Agent pipeline**.
+The system follows a **Retrieval-Augmented Generation (RAG) pipeline powered by an agent**.
+
+### Codebase Indexing
 
 ```
-Project Files
+agent init
       │
       ▼
-File Scanner
+Scan Codebase
       │
       ▼
-Chunking (Code Segments)
+Load Files
       │
       ▼
-Embeddings
+Chunk Code
+      │
+      ▼
+Generate Embeddings
       │
       ▼
 Vector Store
-      │
-      ▼
-Retriever Tool
+```
+
+### Query Pipeline
+
+```
+agent chat
       │
       ▼
 LangGraph Agent
       │
       ▼
-Streaming CLI Response
+Retriever Tool
+      │
+      ▼
+Relevant Code Context
+      │
+      ▼
+LLM Response
+      │
+      ▼
+Streaming CLI Output
 ```
+
 
 ---
 
@@ -98,7 +116,7 @@ Streaming CLI Response
 
 ## 🛠 Planned Improvements
 
-Future upgrades may include:
+Future upgrades will include:
 
 * Tree-sitter based code chunking
 * Symbol-level indexing (functions / classes)
