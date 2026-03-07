@@ -1,8 +1,12 @@
 import os
 
 def scan_project(root_folder):
-   extensions = [".py",".js",".txt",".ts",".cpp",".java",".c",".md"]
-   ignore = [".venv",".git",".agent","__pycache__","venv"]
+   extensions = [".py",".js",".ts",".jsx",
+".tsx",".java",".c",".cpp",".cc",
+".h",".hpp",".cs",".go",".rs",".php",
+".rb",".kt",".swift",".scala",".html",
+".css",".json",".toml",".env"]
+   ignore = [".venv",".git",".agent","__pycache__","venv","dist","build","node_modules"]
    collected_files = []
 
    for root, dirs, files in os.walk(root_folder,topdown=True):
