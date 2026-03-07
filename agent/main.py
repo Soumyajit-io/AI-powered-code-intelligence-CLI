@@ -1,5 +1,4 @@
 import typer
-from .index import get_vector
 from .aiagent import chatbot
 from .Tools.scanner import scan_project
 from .Tools.streaming import stream_chat
@@ -7,7 +6,7 @@ from langchain_core.messages import HumanMessage
 import os
 from rich.console import Console
 from rich.markdown import Markdown
-
+from .cli_ui import start_agent
 console = Console()
 
 app = typer.Typer()
@@ -17,10 +16,7 @@ def init():
    """
    Convert your codebase into vectors
    """
-   if not os.path.exists(".agent"):
-      os.mkdir(".agent")
-   paths = scan_project(os.getcwd())
-   get_vector(paths)
+   start_agent()
 
 
 @app.command()
