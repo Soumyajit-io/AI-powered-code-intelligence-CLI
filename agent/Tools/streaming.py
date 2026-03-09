@@ -3,7 +3,7 @@ from rich.console import Console
 from rich.live import Live
 from rich.markdown import Markdown
 from langchain_core.messages import HumanMessage,AIMessageChunk
-from agent.aiagent import chatbot
+from agent.agent import chatbot
 
 console = Console()
 

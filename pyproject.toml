@@ -21,4 +21,4 @@ dependencies = [
 ]
 
 [project.scripts]
-agent = "agent.main:app"
+agent = "agent.cli.main:app"

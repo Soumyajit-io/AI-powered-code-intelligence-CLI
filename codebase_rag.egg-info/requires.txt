@@ -1,0 +1,13 @@
+faiss-cpu>=1.13.2
+langchain>=1.2.10
+langchain-community>=0.4.1
+langchain-openai>=1.1.10
+langchain-qdrant>=1.1.0
+langchain-text-splitters>=1.1.1
+langgraph>=1.0.9
+pypdf>=6.7.4
+python-dotenv>=1.2.1
+rich>=14.3.3
+streamlit>=1.54.0
+textsplitter>=1.0.3
+typer>=0.24.1

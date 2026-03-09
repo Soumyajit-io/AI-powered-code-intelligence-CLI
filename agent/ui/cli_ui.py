@@ -2,10 +2,10 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.panel import Panel
 import os
 import time
-from .Tools.scanner import scan_project
-from .Rag.load_files import loader
-from .Rag.splitter_files import splitter
-from .Rag.vector_store import get_vectors
+from ..tools.scanner import scan_project
+from ..rag.load_files import loader
+from ..rag.splitter_files import splitter
+from ..rag.vector_store import get_vectors
 from rich.console import Console
 console = Console()
 def start_agent ():

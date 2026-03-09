@@ -7,7 +7,7 @@ from typing import Annotated, TypedDict
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.checkpoint.memory import InMemorySaver
-from .Rag.retrieval import rag_tool
+from .rag.retrieval import rag_tool
 
 load_dotenv()
 

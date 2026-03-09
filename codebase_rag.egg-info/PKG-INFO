@@ -1,0 +1,154 @@
+Metadata-Version: 2.4
+Name: codebase-rag
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: faiss-cpu>=1.13.2
+Requires-Dist: langchain>=1.2.10
+Requires-Dist: langchain-community>=0.4.1
+Requires-Dist: langchain-openai>=1.1.10
+Requires-Dist: langchain-qdrant>=1.1.0
+Requires-Dist: langchain-text-splitters>=1.1.1
+Requires-Dist: langgraph>=1.0.9
+Requires-Dist: pypdf>=6.7.4
+Requires-Dist: python-dotenv>=1.2.1
+Requires-Dist: rich>=14.3.3
+Requires-Dist: streamlit>=1.54.0
+Requires-Dist: textsplitter>=1.0.3
+Requires-Dist: typer>=0.24.1
+Dynamic: license-file
+
+# AI Codebase CLI Assistant
+
+A **CLI-based AI assistant** that lets developers **chat with their codebase directly from the terminal**.
+
+The tool indexes your project, retrieves relevant code using **RAG (Retrieval Augmented Generation)**, and explains how the code works using an LLM.
+
+It is designed to help developers **understand unfamiliar repositories quickly**, without manually searching through files.
+
+---
+
+## ✨ Features
+
+* 💬 Chat with your **entire codebase**
+* 🔎 **RAG-based code retrieval**
+* ⚡ **Streaming responses in the terminal**
+* 🧠 **LangGraph agent with tool calling**
+* 📦 Vector search over project files
+* 🖥️ Clean CLI interface
+
+Example questions you can ask:
+
+```
+Where is authentication implemented?
+Explain the login flow
+What does the sidebar component do?
+Which file handles database connections?
+```
+
+---
+
+## 🖥 Example CLI
+
+```
+Ask about codebase > Where is authentication implemented?
+
+File: src/auth/login.py
+Function: authenticate_user
+
+Explanation:
+This function validates user credentials and creates a session token.
+```
+
+Responses are **streamed live in the terminal** for a smooth developer experience.
+
+---
+
+## 🏗 Architecture
+
+The system follows a **Retrieval-Augmented Generation (RAG) pipeline powered by an agent**.
+
+### Codebase Indexing
+
+```
+agent init
+      │
+      ▼
+Scan Codebase
+      │
+      ▼
+Load Files
+      │
+      ▼
+Chunk Code
+      │
+      ▼
+Generate Embeddings
+      │
+      ▼
+Vector Store
+```
+
+### Query Pipeline
+
+```
+agent chat
+      │
+      ▼
+LangGraph Agent
+      │
+      ▼
+Retriever Tool
+      │
+      ▼
+Relevant Code Context
+      │
+      ▼
+LLM Response
+      │
+      ▼
+Streaming CLI Output
+```
+
+
+---
+
+## 🧰 Tech Stack
+
+* **LangGraph** – Agent orchestration
+* **LangChain** – LLM tooling framework
+* **OpenAI Embeddings** – semantic code search
+* **Qdrant** – vector database
+* **Rich** – streaming CLI UI
+* **Typer** – command-line interface
+* **Python** – core implementation
+
+---
+
+## ⚙ Current Capabilities
+
+* Codebase question answering
+* Semantic code retrieval
+* Tool-enabled AI agent
+* Streaming CLI responses
+
+---
+
+## 🛠 Planned Improvements
+
+Future upgrades will include:
+
+* Tree-sitter based code chunking
+* Symbol-level indexing (functions / classes)
+* Project architecture analysis
+* Dependency graph generation
+* Git history awareness
+
+---
+
+
+## 📜 License
+
+MIT License

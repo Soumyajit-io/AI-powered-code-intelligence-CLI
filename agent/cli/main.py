@@ -1,14 +1,10 @@
 import typer
-from .aiagent import chatbot
-from .Tools.scanner import scan_project
-from .Tools.streaming import stream_chat
-from langchain_core.messages import HumanMessage
-import os
+from ..tools.streaming import stream_chat
 from rich.console import Console
 from rich.markdown import Markdown
-from .cli_ui import start_agent
-console = Console()
+from ..ui.cli_ui import start_agent
 
+console = Console()
 app = typer.Typer()
 
 @app.command()
