@@ -15,17 +15,16 @@ def scan_project(root_folder):
 
       for file in files :
          _, ext = os.path.splitext(file)
-
          if ext in extensions : 
             full_path = os.path.join(root, file)
             relative_path = os.path.relpath(full_path, root_folder)
             collected_files.append(relative_path)
    return collected_files
 
-# if __name__ == "__main__":
-#     root = os.getcwd()
-#     files = scan_project(root)
+if __name__ == "__main__":
+    root = os.getcwd()
+    files = scan_project(root)
 
-#     print("Files discovered:")
-#     for f in files:
-#         print(f)
+    print("Files discovered:")
+    for f in files:
+        print(f)

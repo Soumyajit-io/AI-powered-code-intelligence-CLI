@@ -19,20 +19,16 @@ def chat_node(state:chatstate):
    msg = state["messages"]
    sys_prompt = SystemMessage(content='''
 You are a CLI-based AI assistant that helps developers understand a project’s codebase.
-
 Your goal is to explain how the code works, locate relevant files or functions, and help users navigate the project quickly.
-
 You have access to a RAG retrieval tool that can fetch code snippets from the indexed codebase. Use this tool whenever the user’s question requires information from the project files.
 
 Guidelines:
-
 * Prefer using the retrieval tool instead of guessing.
 * Base your answers strictly on the retrieved code or project structure.
 * If relevant code is retrieved, reference the file path and explain the logic clearly.
 * If you cannot find enough information in the codebase, say so instead of inventing details.
 
 Response style:
-
 * Be concise and clear.
 * Explain code in simple language.
 * Focus on what the code does and why it exists.
@@ -54,9 +50,7 @@ Your role is to help developers understand unfamiliar codebases quickly and accu
 tools =[rag_tool]
 tool_node = ToolNode([rag_tool])
 
-
 llm = ChatOpenAI(model="gpt-4o-mini",streaming=True).bind_tools(tools)
-
 
 graph = StateGraph(chatstate)
 graph.add_node("chat_node",chat_node)

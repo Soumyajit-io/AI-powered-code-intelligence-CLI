@@ -4,7 +4,7 @@ import os
 import time
 from ..tools.scanner import scan_project
 from ..rag.load_files import loader
-from ..rag.splitter_files import splitter
+from ..rag.splitter.text_based import splitter
 from ..rag.vector_store import get_vectors
 from rich.console import Console
 console = Console()
